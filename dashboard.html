@@ -1,0 +1,108 @@
+<!-- dashboard.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ToDo List App</title>
+    <link rel="stylesheet" href="dashboard.css">
+    </head>
+<body>
+    <h1>Welcome to ToDo List Dashboard</h1>
+
+    <div id="todo-container">
+        <h2>My To-Do List</h2>
+        <ul id="todo-list">
+            <!-- To-do items will be dynamically added here -->
+        </ul>
+
+        <div id="add-todo-form">
+            <input type="text" id="newTodo" placeholder="Add a new todo...">
+            <button onclick="addTodo()">Add</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for managing to-do list interactions
+
+        // Sample to-do items (you can fetch these from the server if needed)
+        const todoItems = [
+            { id: 1, text: 'Complete task 1', completed: false },
+            { id: 2, text: 'Read a book', completed: true },
+            { id: 3, text: 'Learn something new', completed: false }
+        ];
+
+        // Function to render to-do list items
+        function renderTodoList() {
+            const todoList = document.getElementById('todo-list');
+            todoList.innerHTML = '';
+
+            todoItems.forEach(todo => {
+                const listItem = document.createElement('li');
+                listItem.className = 'todo-item';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = todo.completed;
+                checkbox.addEventListener('change', () => toggleTodoStatus(todo.id));
+
+                const todoText = document.createElement('span');
+                todoText.textContent = todo.text;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.addEventListener('click', () => deleteTodoItem(todo.id));
+
+                listItem.appendChild(checkbox);
+                listItem.appendChild(todoText);
+                listItem.appendChild(deleteButton);
+
+                todoList.appendChild(listItem);
+            });
+        }
+
+        // Function to add a new todo item
+        function addTodo() {
+            const newTodoInput = document.getElementById('newTodo');
+            const newTodoText = newTodoInput.value.trim();
+
+            if (newTodoText !== '') {
+                const newTodoItem = {
+                    id: todoItems.length + 1,
+                    text: newTodoText,
+                    completed: false
+                };
+
+                todoItems.push(newTodoItem);
+                newTodoInput.value = '';
+
+                renderTodoList();
+            }
+        }
+
+        // Function to toggle the status of a todo item
+        function toggleTodoStatus(todoId) {
+            const todoToUpdate = todoItems.find(todo => todo.id === todoId);
+
+            if (todoToUpdate) {
+                todoToUpdate.completed = !todoToUpdate.completed;
+                renderTodoList();
+            }
+        }
+
+        // Function to delete a todo item
+        function deleteTodoItem(todoId) {
+            const todoIndex = todoItems.findIndex(todo => todo.id === todoId);
+
+            if (todoIndex !== -1) {
+                todoItems.splice(todoIndex, 1);
+                renderTodoList();
+            }
+        }
+
+        // Initial rendering of the to-do list
+        renderTodoList();
+    </script>
+</body>
+</html>

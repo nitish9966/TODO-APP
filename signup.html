@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Signup</title>
+</head>
+<body>
+    <div class="container">
+        <marquee behavior="scroll" direction="right"><h2>Signup</h2></marquee>
+       <!-- signup.html -->
+    <form action="/signup" method="POST">
+    <!-- Form fields for FullName, Email, Password -->
+        <input type="text" name="FullName" placeholder="Full Name">
+        <input type="email" name="Email" placeholder="Email">
+        <input type="password" name="Password" placeholder="Password">
+        <button type="submit">Sign Up</button>
+    </form>
+
+
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+    <script src="server.js"></script>
+</body>
+</html>

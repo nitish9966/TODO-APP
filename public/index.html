@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #141414;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .netflix-container {
+            background: #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 30px;
+            color: #fff;
+            width: 80%;
+            max-width: 400px; /* Adjust as needed */
+        }
+
+        h1 {
+            color: #e50914;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #e50914;
+            color: #fff;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+        }
+
+        button:hover {
+            background-color: #b20710;
+            transform: scale(1.05) rotateY(15deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            color: #fff;
+        }
+
+        p {
+            font-size: 20px;
+            color: #aaa;
+        }
+
+        a {
+            text-decoration: none;
+            color: #e50914;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #b20710;
+        }
+
+        .netflix-container::before {
+            content: '';
+            background: linear-gradient(to right, #e50914, #b20710);
+            height: 8px;
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="netflix-container">
+        <h1>ToDo List App</h1>
+        
+        <!-- Registration Form -->
+        <div class="form-group">
+            <h2>Register</h2>
+            <p>
+                <a href="signup.html"><button id="registerButton">Register</button></a>
+                Go to Registration
+            </p>
+        </div>
+        
+        <!-- Login Form -->
+        <div class="form-group">
+            <h2>Login</h2>
+            <p>
+                <a href="login.html"><button id="loginButton">Login</button></a>
+                Go to Login
+            </p>
+        </div>
+    </div>
+</body>
+</html>
